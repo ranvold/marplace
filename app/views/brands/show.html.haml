@@ -7,6 +7,7 @@
   %b Description:
   = @brand.description
 
-= link_to 'Edit', edit_brand_path(@brand)
+
+= button_to 'Edit', edit_brand_path(@brand), method: :get, class: 'btn btn-secondary'
 \|
-= link_to 'Back', brands_path
+= button_to 'Back', brands_path, method: :get, class: 'btn btn-light'

@@ -1,6 +1,8 @@
-%h1 Listing cars
+%h1 Cars
 
-%table
+= button_to 'Add new car', new_car_path, method: :get, class: 'btn btn-primary'
+
+%table.table.table-bordered.table-striped
   %thead
     %tr
       %th Name
@@ -14,7 +16,7 @@
       %th
       %th
 
-  %tbody
+  %tbody.align-middle
     - @cars.each do |car|
       %tr
         %td= car.name
@@ -24,10 +26,9 @@
         %td= car.price
         %td= car.model
         %td= car.dealer
-        %td= link_to 'Show', car
-        %td= link_to 'Edit', edit_car_path(car)
-        %td= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Car', new_car_path
+        %td{:style => "width:10%"}
+          = button_to 'Show', car, method: :get, class: 'btn btn-info'
+        %td{:style => "width:10%"}
+          = button_to 'Edit', edit_car_path(car), method: :get, class: 'btn btn-secondary'
+        %td{:style => "width:10%"}
+          = button_to 'Delete', car, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

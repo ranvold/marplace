@@ -22,6 +22,6 @@
   %b Dealer:
   = @car.dealer
 
-= link_to 'Edit', edit_car_path(@car)
+= button_to 'Edit', edit_car_path(@car), method: :get, class: 'btn btn-secondary'
 \|
-= link_to 'Back', cars_path
+= button_to 'Back', cars_path, method: :get, class: 'btn btn-light'

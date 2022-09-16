@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', @brand
+= button_to 'Show', @brand, method: :get, class: 'btn btn-info'
 \|
-= link_to 'Back', brands_path
+= button_to 'Back', brands_path, method: :get, class: 'btn btn-light'
