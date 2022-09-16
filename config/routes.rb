@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root to: 'cars#index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :cars
+  resources :models
+  resources :submodels
+  resources :dealers
+  resources :brands
 end

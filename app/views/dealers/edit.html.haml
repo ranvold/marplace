@@ -1,0 +1,8 @@
+%h1 Editing dealer
+
+= render 'form'
+
+\|
+= button_to 'Show', @dealer, method: :get, class: 'btn btn-info'
+\|
+= button_to 'Back', dealers_path, method: :get, class: 'btn btn-light'

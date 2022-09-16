@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @submodel.name
+
+= link_to 'Edit', edit_submodel_path(@submodel)
+\|
+= link_to 'Back', submodels_path

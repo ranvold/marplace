@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @car.name
+%p
+  %b Fueltype:
+  = @car.fueltype
+%p
+  %b Bodycolor:
+  = @car.bodycolor
+%p
+  %b Gearbox:
+  = @car.gearbox
+%p
+  %b Price:
+  = @car.price
+%p
+  %b Model:
+  = @car.model
+%p
+  %b Dealer:
+  = @car.dealer
+
+= link_to 'Edit', edit_car_path(@car)
+\|
+= link_to 'Back', cars_path
