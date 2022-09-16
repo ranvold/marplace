@@ -4,6 +4,7 @@
   %b Name:
   = @dealer.name
 
-= link_to 'Edit', edit_dealer_path(@dealer)
+
+= button_to 'Edit', edit_dealer_path(@dealer), method: :get, class: 'btn btn-secondary'
 \|
-= link_to 'Back', dealers_path
+= button_to 'Back', dealers_path, method: :get, class: 'btn btn-light'

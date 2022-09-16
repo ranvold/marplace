@@ -1,6 +1,8 @@
-%h1 Listing dealers
+%h1 Dealers
 
-%table
+= button_to 'Add new dealer', new_dealer_path, method: :get, class: 'btn btn-primary'
+
+%table.table.table-bordered.table-striped
   %thead
     %tr
       %th Name
@@ -8,14 +10,13 @@
       %th
       %th
 
-  %tbody
+  %tbody.align-middle
     - @dealers.each do |dealer|
       %tr
         %td= dealer.name
-        %td= link_to 'Show', dealer
-        %td= link_to 'Edit', edit_dealer_path(dealer)
-        %td= link_to 'Destroy', dealer, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Dealer', new_dealer_path
+        %td{:style => "width:10%"}
+          = button_to 'Show', dealer, method: :get, class: 'btn btn-info'
+        %td{:style => "width:10%"}
+          = button_to 'Edit', edit_dealer_path(dealer), method: :get, class: 'btn btn-secondary'
+        %td{:style => "width:10%"}
+          = button_to 'Delete', dealer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
