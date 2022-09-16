@@ -1,0 +1,21 @@
+%h1 Listing submodels
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @submodels.each do |submodel|
+      %tr
+        %td= submodel.name
+        %td= link_to 'Show', submodel
+        %td= link_to 'Edit', edit_submodel_path(submodel)
+        %td= link_to 'Destroy', submodel, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Submodel', new_submodel_path

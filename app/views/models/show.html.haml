@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @model.name
+%p
+  %b Description:
+  = @model.description
+%p
+  %b Brand:
+  = @model.brand
+%p
+  %b Submodel:
+  = @model.submodel
+
+= link_to 'Edit', edit_model_path(@model)
+\|
+= link_to 'Back', models_path
