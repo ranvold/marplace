@@ -8,9 +8,13 @@
 
   .field
     = f.label :name
+    %br/
     = f.text_field :name
   .field
     = f.label :description
+    %br/
     = f.text_area :description
   .actions
-    = f.submit 'Save'
+    %br/
+    = f.submit 'Save', class: 'btn btn-success'
+

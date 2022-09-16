@@ -2,6 +2,7 @@
 
 = render 'form'
 
-= link_to 'Show', @submodel
 \|
-= link_to 'Back', submodels_path
+= button_to 'Show', @submodel, method: :get, class: 'btn btn-info'
+\|
+= button_to 'Back', submodels_path, method: :get, class: 'btn btn-light'

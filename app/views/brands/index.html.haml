@@ -1,6 +1,8 @@
-%h1 Listing brands
+%h1 Brands
 
-%table
+= button_to 'Add new brand', new_brand_path, method: :get, class: 'btn btn-primary'
+
+%table.table.table-bordered.table-striped
   %thead
     %tr
       %th Name
@@ -9,15 +11,14 @@
       %th
       %th
 
-  %tbody
+  %tbody.align-middle
     - @brands.each do |brand|
       %tr
         %td= brand.name
         %td= brand.description
-        %td= link_to 'Show', brand
-        %td= link_to 'Edit', edit_brand_path(brand)
-        %td= link_to 'Destroy', brand, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Brand', new_brand_path
+        %td{:style => "width:10%"}
+          = button_to 'Show', brand, method: :get, class: 'btn btn-info'
+        %td{:style => "width:10%"}
+          = button_to 'Edit', edit_brand_path(brand), method: :get, class: 'btn btn-secondary'
+        %td{:style => "width:10%"}
+          = button_to 'Delete', brand, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

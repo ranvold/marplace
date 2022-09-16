@@ -1,6 +1,8 @@
-%h1 Listing models
+%h1 Models
 
-%table
+= button_to 'Add new model', new_model_path, method: :get, class: 'btn btn-primary'
+
+%table.table.table-bordered.table-striped
   %thead
     %tr
       %th Name
@@ -11,17 +13,16 @@
       %th
       %th
 
-  %tbody
+  %tbody.align-middle
     - @models.each do |model|
       %tr
         %td= model.name
         %td= model.description
         %td= model.brand
         %td= model.submodel
-        %td= link_to 'Show', model
-        %td= link_to 'Edit', edit_model_path(model)
-        %td= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Model', new_model_path
+        %td{:style => "width:10%"}
+          = button_to 'Show', model, method: :get, class: 'btn btn-info'
+        %td{:style => "width:10%"}
+          = button_to 'Edit', edit_model_path(model), method: :get, class: 'btn btn-secondary'
+        %td{:style => "width:10%"}
+          = button_to 'Delete', model, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

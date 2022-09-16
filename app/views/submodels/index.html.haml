@@ -1,6 +1,8 @@
-%h1 Listing submodels
+%h1 Submodels
 
-%table
+= button_to 'Add new submodel', new_dealer_path, method: :get, class: 'btn btn-primary'
+
+%table.table.table-bordered.table-striped
   %thead
     %tr
       %th Name
@@ -8,14 +10,15 @@
       %th
       %th
 
-  %tbody
+  %tbody.align-middle
     - @submodels.each do |submodel|
       %tr
         %td= submodel.name
-        %td= link_to 'Show', submodel
-        %td= link_to 'Edit', edit_submodel_path(submodel)
-        %td= link_to 'Destroy', submodel, method: :delete, data: { confirm: 'Are you sure?' }
+        %td{:style => "width:10%"}
+          = button_to 'Show', submodel, method: :get, class: 'btn btn-info'
+        %td{:style => "width:10%"}
+          = button_to 'Edit', edit_submodel_path(submodel), method: :get, class: 'btn btn-secondary'
+        %td{:style => "width:10%"}
+          = button_to 'Delete', submodel, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
 
-%br
 
-= link_to 'New Submodel', new_submodel_path

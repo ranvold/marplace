@@ -8,24 +8,32 @@
 
   .field
     = f.label :name
+    %br/
     = f.text_field :name
   .field
     = f.label :fueltype
+    %br/
     = f.text_field :fueltype
   .field
     = f.label :bodycolor
+    %br/
     = f.text_field :bodycolor
   .field
     = f.label :gearbox
+    %br/
     = f.text_field :gearbox
   .field
     = f.label :price
+    %br/
     = f.text_field :price
   .field
     = f.label :model
+    %br/
     = f.text_field :model
   .field
     = f.label :dealer
+    %br/
     = f.text_field :dealer
   .actions
-    = f.submit 'Save'
+    %br/
+    = f.submit 'Save', class: 'btn btn-success'
