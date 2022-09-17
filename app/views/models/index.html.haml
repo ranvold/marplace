@@ -8,7 +8,6 @@
       %th Name
       %th Description
       %th Brand
-      %th Submodel
       %th
       %th
       %th
@@ -16,13 +15,14 @@
   %tbody.align-middle
     - @models.each do |model|
       %tr
-        %td= model.name
+        %td.width_for_string_field
+          = model.name
         %td= model.description
-        %td= model.brand
-        %td= model.submodel
-        %td{:style => "width:10%"}
+        %td.width_for_string_field
+          = model.brand.name
+        %td.width_for_sed
           = button_to 'Show', model, method: :get, class: 'btn btn-info'
-        %td{:style => "width:10%"}
+        %td.width_for_sed
           = button_to 'Edit', edit_model_path(model), method: :get, class: 'btn btn-secondary'
-        %td{:style => "width:10%"}
+        %td.width_for_sed
           = button_to 'Delete', model, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

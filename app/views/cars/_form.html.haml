@@ -31,9 +31,9 @@
     %br/
     = f.text_field :model
   .field
-    = f.label :dealer
+    = f.label :dealer_id
     %br/
-    = f.text_field :dealer
+    = f.select :dealer_id, @dealers, selected: @car.dealer_id
   .actions
     %br/
     = f.submit 'Save', class: 'btn btn-success'

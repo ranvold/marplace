@@ -1,25 +1,22 @@
 class ModelsController < ApplicationController
   before_action :set_model, only: %i[ show edit update destroy ]
 
-  # GET /models
   def index
     @models = Model.all
   end
 
-  # GET /models/1
   def show
   end
 
-  # GET /models/new
   def new
     @model = Model.new
+    @brands = Brand.select_brands
   end
 
-  # GET /models/1/edit
   def edit
+    @brands = Brand.select_brands
   end
 
-  # POST /models
   def create
     @model = Model.new(model_params)
 
@@ -30,7 +27,6 @@ class ModelsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /models/1
   def update
     if @model.update(model_params)
       redirect_to @model, notice: "Model was successfully updated."
@@ -39,20 +35,18 @@ class ModelsController < ApplicationController
     end
   end
 
-  # DELETE /models/1
   def destroy
     @model.destroy
     redirect_to models_url, notice: "Model was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+  
     def set_model
       @model = Model.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def model_params
-      params.require(:model).permit(:name, :description, :brand_id, :submodel_id)
+      params.require(:model).permit(:name, :description, :brand_id)
     end
 end

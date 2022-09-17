@@ -20,8 +20,8 @@
   = @car.model
 %p
   %b Dealer:
-  = @car.dealer
+  = @car.dealer.name
 
 = button_to 'Edit', edit_car_path(@car), method: :get, class: 'btn btn-secondary'
-\|
+
 = button_to 'Back', cars_path, method: :get, class: 'btn btn-light'

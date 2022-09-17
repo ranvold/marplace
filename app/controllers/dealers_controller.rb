@@ -39,6 +39,7 @@ class DealersController < ApplicationController
   end
 
   private
+
     def set_dealer
       @dealer = Dealer.find(params[:id])
     end

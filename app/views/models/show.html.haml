@@ -8,12 +8,9 @@
   = @model.description
 %p
   %b Brand:
-  = @model.brand
-%p
-  %b Submodel:
-  = @model.submodel
+  = @model.brand.name
 
 
 = button_to 'Edit', edit_model_path(@model), method: :get, class: 'btn btn-secondary'
-\|
+
 = button_to 'Back', models_path, method: :get, class: 'btn btn-light'

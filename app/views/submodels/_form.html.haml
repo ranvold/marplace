@@ -10,6 +10,10 @@
     = f.label :name
     %br/
     = f.text_field :name
+  .field
+    = f.label :model_id
+    %br/
+    = f.select :model_id, @models, selected: @submodel.model_id
   .actions
     %br/
     = f.submit 'Save', class: 'btn btn-success'

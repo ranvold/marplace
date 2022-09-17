@@ -25,10 +25,10 @@
         %td= car.gearbox
         %td= car.price
         %td= car.model
-        %td= car.dealer
-        %td{:style => "width:10%"}
+        %td= car.dealer.name
+        %td.width_for_sed
           = button_to 'Show', car, method: :get, class: 'btn btn-info'
-        %td{:style => "width:10%"}
+        %td.width_for_sed
           = button_to 'Edit', edit_car_path(car), method: :get, class: 'btn btn-secondary'
-        %td{:style => "width:10%"}
+        %td.width_for_sed
           = button_to 'Delete', car, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

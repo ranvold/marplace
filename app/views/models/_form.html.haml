@@ -15,13 +15,9 @@
     %br/
     = f.text_area :description
   .field
-    = f.label :brand
+    = f.label :brand_id
     %br/
-    = f.text_field :brand
-  .field
-    = f.label :submodel
-    %br/
-    = f.text_field :submodel
+    = f.select :brand_id, @brands, selected: @model.brand_id
   .actions
     %br/
     = f.submit 'Save', class: 'btn btn-success'
