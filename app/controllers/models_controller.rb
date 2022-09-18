@@ -10,11 +10,9 @@ class ModelsController < ApplicationController
 
   def new
     @model = Model.new
-    @brands = Brand.select_brands
   end
 
   def edit
-    @brands = Brand.select_brands
   end
 
   def create

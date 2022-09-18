@@ -33,7 +33,7 @@
   .field
     = f.label :dealer_id
     %br/
-    = f.select :dealer_id, @dealers, selected: @car.dealer_id
+    = f.select :dealer_id, Dealer.all.collect { |d| [ d.name, d.id ] }, selected: @car.dealer_id
   .actions
     %br/
     = f.submit 'Save', class: 'btn btn-success'

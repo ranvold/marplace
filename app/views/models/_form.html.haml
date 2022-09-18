@@ -17,7 +17,7 @@
   .field
     = f.label :brand_id
     %br/
-    = f.select :brand_id, @brands, selected: @model.brand_id
+    = f.select :brand_id, Brand.all.collect { |b| [ b.name, b.id ] }, selected: @model.brand_id
   .actions
     %br/
     = f.submit 'Save', class: 'btn btn-success'

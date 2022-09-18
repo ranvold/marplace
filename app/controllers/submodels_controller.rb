@@ -10,11 +10,9 @@ class SubmodelsController < ApplicationController
 
   def new
     @submodel = Submodel.new
-    @models = Model.select_models
   end
 
   def edit
-    @models = Model.select_models
   end
 
   def create

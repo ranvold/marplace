@@ -10,11 +10,9 @@ class CarsController < ApplicationController
 
   def new
     @car = Car.new
-    @dealers = Dealer.select_dealers
   end
 
   def edit
-    @dealers = Dealer.select_dealers
   end
 
   def create
