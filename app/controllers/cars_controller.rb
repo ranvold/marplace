@@ -18,6 +18,8 @@ class CarsController < ApplicationController
   def create
     @car = Car.new(car_params.merge(model_id: params[:model_id]))
 
+    @car.name = Car.car_name(@car, params[:submodel_id])
+
     if @car.save
       redirect_to @car, notice: "Car was successfully created."
     else
@@ -26,7 +28,10 @@ class CarsController < ApplicationController
   end
 
   def update
-    @car.model_id = params[:model_id] if !params[:model_id].nil?
+    if !params[:model_id].nil?
+      @car.model_id = params[:model_id]
+      @car.name = Car.car_name(@car, params[:submodel_id])
+    end
 
     if @car.update(car_params)
       redirect_to @car, notice: "Car was successfully updated."

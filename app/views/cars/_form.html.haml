@@ -7,25 +7,17 @@
           %li= message
 
   .field
-    = f.label :name
+    = f.label :fuel_type
     %br/
-    = f.text_field :name
+    = f.select :fuel_type, Car.fuel_types.map { |key, value| [key.humanize, key] }
   .field
-    = f.label :fueltype
+    = f.label :body_color
     %br/
-    = f.text_field :fueltype
-  .field
-    = f.label :bodycolor
-    %br/
-    = f.text_field :bodycolor
+    = f.select :body_color, Car.body_colors.map { |key, value| [key.humanize, key] }
   .field
     = f.label :gearbox
     %br/
-    = f.text_field :gearbox
-  .field
-    = f.label :price
-    %br/
-    = f.text_field :price
+    = f.select :gearbox, Car.gearboxes.map { |key, value| [key.humanize, key] }
   .field
     = f.label 'Brand'
     %br/
@@ -42,6 +34,10 @@
     = f.label :dealer_id
     %br/
     = f.select :dealer_id, Dealer.all.collect { |d| [ d.name, d.id ] }
+  .field
+    = f.label :price
+    %br/
+    = f.text_field :price
   .actions
     %br/
     = f.submit 'Save', class: 'btn btn-success'

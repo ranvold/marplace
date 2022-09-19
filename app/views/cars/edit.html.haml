@@ -1,5 +1,9 @@
 %h1 Editing car
 
+%p
+  %b
+    = @car.name
+    
 = render 'form'
 
 = button_to 'Back', cars_path, method: :get, class: 'btn btn-light'

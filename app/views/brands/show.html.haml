@@ -1,4 +1,5 @@
-%p#notice.alert.alert-success= notice
+- if flash[:notice]
+  .alert.alert-success= notice
 
 %p
   %b Name:
@@ -6,7 +7,6 @@
 %p
   %b Description:
   = @brand.description
-
 
 = button_to 'Edit', edit_brand_path(@brand), method: :get, class: 'btn btn-secondary'
 

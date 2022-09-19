@@ -13,7 +13,7 @@
 
   %tbody.align-middle
     - @brands.each do |brand|
-      %tr
+      %tr{"url" => "/brands/" + brand.id.to_s}
         %td.width_for_string_field
           = brand.name
         %td= brand.description
@@ -22,4 +22,4 @@
         %td.width_for_sed
           = button_to 'Edit', edit_brand_path(brand), method: :get, class: 'btn btn-secondary'
         %td.width_for_sed
-          = button_to 'Delete', brand, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+          %button.deleteAction.btn.btn-danger{:type => "button"} Delete

@@ -6,23 +6,23 @@
   %thead
     %tr
       %th Name
-      %th Description
       %th Brand
+      %th Description
       %th
       %th
       %th
 
   %tbody.align-middle
     - @models.each do |model|
-      %tr
+      %tr{"url" => "/models/" + model.id.to_s}
         %td.width_for_string_field
           = model.name
-        %td= model.description
         %td.width_for_string_field
           = model.brand.name
+        %td= model.description
         %td.width_for_sed
           = button_to 'Show', model, method: :get, class: 'btn btn-info'
         %td.width_for_sed
           = button_to 'Edit', edit_model_path(model), method: :get, class: 'btn btn-secondary'
         %td.width_for_sed
-          = button_to 'Delete', model, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+          %button.deleteAction.btn.btn-danger{:type => "button"} Delete

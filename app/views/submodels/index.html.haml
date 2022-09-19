@@ -13,7 +13,7 @@
 
   %tbody.align-middle
     - @submodels.each do |submodel|
-      %tr
+      %tr{"url" => "/submodels/" + submodel.id.to_s}
         %td= submodel.name
         %td= submodel.model.name
         %td.width_for_sed
@@ -21,6 +21,4 @@
         %td.width_for_sed
           = button_to 'Edit', edit_submodel_path(submodel), method: :get, class: 'btn btn-secondary'
         %td.width_for_sed
-          = button_to 'Delete', submodel, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
-
-
+          %button.deleteAction.btn.btn-danger{:type => "button"} Delete

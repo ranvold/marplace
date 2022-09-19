@@ -6,30 +6,27 @@
   %thead
     %tr
       %th Name
-      %th Fueltype
-      %th Bodycolor
+      %th Fuel type
+      %th Body color
       %th Gearbox
-      %th Price
-      %th Model
-      %th Submodel
       %th Dealer
+      %th Price
       %th
       %th
       %th
 
   %tbody.align-middle
     - @cars.each do |car|
-      %tr
+      %tr{"url" => "/cars/" + car.id.to_s}
         %td= car.name
-        %td= car.fueltype
-        %td= car.bodycolor
+        %td= car.fuel_type
+        %td= car.body_color
         %td= car.gearbox
-        %td= car.price
-        %td= car.model
         %td= car.dealer.name
+        %td= car.price
         %td.width_for_sed
           = button_to 'Show', car, method: :get, class: 'btn btn-info'
         %td.width_for_sed
           = button_to 'Edit', edit_car_path(car), method: :get, class: 'btn btn-secondary'
         %td.width_for_sed
-          = button_to 'Delete', car, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+          %button.deleteAction.btn.btn-danger{:type => "button"} Delete
