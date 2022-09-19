@@ -26,14 +26,26 @@
     = f.label :price
     %br/
     = f.text_field :price
+
   .field
-    = f.label :model
+    = f.label 'Brand'
     %br/
-    = f.text_field :model
+    = select_tag "brand_id", options_for_select(Brand.all.collect{ |b| [b.name, b.id] }), prompt: "Select brand"
+  
+  .field
+    = f.label :model_id
+    %br/
+    = select_tag :model_id, options_for_select(@models.collect{ |m| [m.name, m.id] }), disabled: true
+
+  .field
+    = f.label 'Submodel'
+    %br/
+    = select_tag "submodel_id", options_for_select(@submodels.collect{ |b| [b.name, b.id] }), disabled: true
+
   .field
     = f.label :dealer_id
     %br/
-    = f.select :dealer_id, Dealer.all.collect { |d| [ d.name, d.id ] }, selected: @car.dealer_id
+    = f.select :dealer_id, Dealer.all.collect { |d| [ d.name, d.id ] }
   .actions
     %br/
     = f.submit 'Save', class: 'btn btn-success'

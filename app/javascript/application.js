@@ -2,3 +2,4 @@
 import * as bootstrap from "bootstrap"
 import "./src/jquery"
 import "./src/jquery-ui"
+import "./ajax"

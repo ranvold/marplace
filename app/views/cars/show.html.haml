@@ -1,4 +1,4 @@
-%p#notice= notice
+%p#notice.alert.alert-success= notice
 
 %p
   %b Name:
@@ -15,12 +15,6 @@
 %p
   %b Price:
   = @car.price
-%p
-  %b Model:
-  = @car.model
-%p
-  %b Dealer:
-  = @car.dealer.name
 
 = button_to 'Edit', edit_car_path(@car), method: :get, class: 'btn btn-secondary'
 
