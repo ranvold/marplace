@@ -38,6 +38,12 @@ class ModelsController < ApplicationController
     redirect_to models_url, notice: "Model was successfully destroyed."
   end
 
+  def models_by_brand
+    models = Brand.find(params[:brand_id]).models
+
+    render json: { models: models }
+  end
+
   private
   
     def set_model

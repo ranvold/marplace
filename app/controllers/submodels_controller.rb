@@ -38,6 +38,12 @@ class SubmodelsController < ApplicationController
     redirect_to submodels_url, notice: "Submodel was successfully destroyed."
   end
 
+  def submodels_by_model
+    submodels = Submodel.where(model_id: params[:model_id])
+
+    render json: { submodels: submodels }
+  end
+
   private
 
     def set_submodel

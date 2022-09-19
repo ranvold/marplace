@@ -1,7 +1,5 @@
 class CarsController < ApplicationController
   before_action :set_car, only: %i[ show edit update destroy ]
-  before_action :get_models, only: %i[ new edit ]
-  before_action :get_submodels, only: %i[ new edit ]
 
   def index
     @cars = Car.all
@@ -12,13 +10,9 @@ class CarsController < ApplicationController
 
   def new
     @car = Car.new
-    @models = []
-    @submodels = []
   end
 
   def edit
-    @models = []
-    @submodels = []
   end
 
   def create
@@ -32,7 +26,7 @@ class CarsController < ApplicationController
   end
 
   def update
-    @car.model_id = params[:model_id]
+    @car.model_id = params[:model_id] if !params[:model_id].nil?
 
     if @car.update(car_params)
       redirect_to @car, notice: "Car was successfully updated."
@@ -47,34 +41,6 @@ class CarsController < ApplicationController
   end
 
   private
-
-  def get_models
-    if params[:brand_id].present? && params[:model_id].nil?
-      @models = Brand.find(params[:brand_id]).models
-
-      if request.xhr?
-        respond_to do |format|
-          format.json {
-            render json: {models: @models}
-          }
-        end
-      end
-    end
-  end
-
-  def get_submodels
-    if params[:model_id]
-      @submodels = Submodel.where(model_id: params[:model_id])
-
-      if request.xhr?
-        respond_to do |format|
-          format.json {
-            render json: {submodels: @submodels}
-          }
-        end
-      end
-    end
-  end
 
     def set_car
       @car = Car.find(params[:id])
