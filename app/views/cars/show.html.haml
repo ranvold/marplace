@@ -1,27 +1,25 @@
-%p#notice= notice
+- if flash[:notice]
+  .alert.alert-success= notice
 
 %p
   %b Name:
   = @car.name
 %p
-  %b Fueltype:
-  = @car.fueltype
+  %b Fuel type:
+  = @car.fuel_type
 %p
-  %b Bodycolor:
-  = @car.bodycolor
+  %b Body color:
+  = @car.body_color
 %p
   %b Gearbox:
   = @car.gearbox
 %p
+  %b Dealer:
+  = @car.dealer.name
+%p
   %b Price:
   = @car.price
-%p
-  %b Model:
-  = @car.model
-%p
-  %b Dealer:
-  = @car.dealer
 
 = button_to 'Edit', edit_car_path(@car), method: :get, class: 'btn btn-secondary'
-\|
+
 = button_to 'Back', cars_path, method: :get, class: 'btn btn-light'

@@ -12,11 +12,11 @@
 
   %tbody.align-middle
     - @dealers.each do |dealer|
-      %tr
+      %tr{"url" => "/dealers/" + dealer.id.to_s}
         %td= dealer.name
-        %td{:style => "width:10%"}
+        %td.width_for_sed
           = button_to 'Show', dealer, method: :get, class: 'btn btn-info'
-        %td{:style => "width:10%"}
+        %td.width_for_sed
           = button_to 'Edit', edit_dealer_path(dealer), method: :get, class: 'btn btn-secondary'
-        %td{:style => "width:10%"}
-          = button_to 'Delete', dealer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+        %td.width_for_sed
+          %button.deleteAction.btn.btn-danger{:type => "button"} Delete

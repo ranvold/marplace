@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_16_105342) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_19_182258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,14 +23,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_16_105342) do
 
   create_table "cars", force: :cascade do |t|
     t.string "name"
-    t.string "fueltype"
-    t.string "bodycolor"
-    t.string "gearbox"
     t.float "price"
     t.bigint "model_id", null: false
     t.bigint "dealer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "fuel_type", default: 0
+    t.integer "body_color", default: 0
+    t.integer "gearbox", default: 0
     t.index ["dealer_id"], name: "index_cars_on_dealer_id"
     t.index ["model_id"], name: "index_cars_on_model_id"
   end
@@ -45,21 +45,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_16_105342) do
     t.string "name"
     t.text "description"
     t.bigint "brand_id", null: false
-    t.bigint "submodel_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_models_on_brand_id"
-    t.index ["submodel_id"], name: "index_models_on_submodel_id"
   end
 
   create_table "submodels", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "model_id", null: false
+    t.index ["model_id"], name: "index_submodels_on_model_id"
   end
 
   add_foreign_key "cars", "dealers"
   add_foreign_key "cars", "models"
   add_foreign_key "models", "brands"
-  add_foreign_key "models", "submodels"
+  add_foreign_key "submodels", "models"
 end
