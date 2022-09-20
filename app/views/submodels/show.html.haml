@@ -1,6 +1,3 @@
-- if flash[:notice]
-  .alert.alert-success= notice
-
 %p
   %b Name:
   = @submodel.name
@@ -10,4 +7,4 @@
 
 = button_to 'Edit', edit_submodel_path(@submodel), method: :get, class: 'btn btn-secondary'
 
-= button_to 'Back', submodels_path, method: :get, class: 'btn btn-light'
+= button_to 'Back', submodels_path, method: :get, class: 'btn btn-light mt-2'
