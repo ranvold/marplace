@@ -1,6 +1,9 @@
-Rails.application.routes.draw do
-  devise_for :users
+Rails.application.routes.draw do  
   root to: 'cars#index'
+
+  devise_for :users
+
+  get 'favorites#index'
 
   scope '/api' do
     get 'models/:brand_id', to: 'models#models_by_brand'
