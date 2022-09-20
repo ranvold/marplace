@@ -30,3 +30,5 @@
           = button_to 'Edit', edit_car_path(car), method: :get, class: 'btn btn-secondary'
         %td.width_for_sed
           %button.deleteAction.btn.btn-danger{:type => "button"} Delete
+
+= paginate @cars, class: 

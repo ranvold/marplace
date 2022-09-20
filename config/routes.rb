@@ -1,14 +1,14 @@
-Rails.application.routes.draw do  
+Rails.application.routes.draw do
   root to: 'cars#index'
 
   devise_for :users
-
-  get 'favorites#index'
 
   scope '/api' do
     get 'models/:brand_id', to: 'models#models_by_brand'
     get 'submodels/:model_id', to: 'submodels#submodels_by_model'
   end
+
+  get 'favorites/index'
 
   resources :cars
   resources :models

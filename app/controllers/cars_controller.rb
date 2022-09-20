@@ -3,6 +3,7 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all
+    @cars = Kaminari.paginate_array(@cars).page(params[:page]).per(2)
   end
 
   def show
@@ -52,6 +53,6 @@ class CarsController < ApplicationController
     end
 
     def car_params
-      params.require(:car).permit(:name, :fueltype, :bodycolor, :gearbox, :price, :model_id, :dealer_id)
+      params.require(:car).permit(:name, :fuel_type, :body_color, :gearbox, :price, :model_id, :dealer_id)
     end
 end

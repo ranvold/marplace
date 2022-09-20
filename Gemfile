@@ -11,6 +11,7 @@ gem 'jsbundling-rails', '~> 1.0', '>= 1.0.3'
 gem 'cssbundling-rails', '~> 1.1', '>= 1.1.1'
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 group :development, :test do
   gem 'debug', '~> 1.6', '>= 1.6.2', platforms: %i[ mri mingw x64_mingw ]
