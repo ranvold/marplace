@@ -38,6 +38,10 @@
     = f.label :price
     %br/
     = f.text_field :price
+  .field
+    = f.label :images
+    %br/
+    = f.file_field :images, multiple: true
   .actions
     %br/
     = f.submit 'Save', class: 'btn btn-success'
