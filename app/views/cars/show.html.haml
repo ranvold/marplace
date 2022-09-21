@@ -1,22 +1,32 @@
-%p
-  %b Name:
-  = @car.name
-%p
-  %b Fuel type:
-  = @car.fuel_type
-%p
-  %b Body color:
-  = @car.body_color
-%p
-  %b Gearbox:
-  = @car.gearbox
-%p
-  %b Dealer:
-  = @car.dealer.name
-%p
-  %b Price:
-  = @car.price
+.card
+  %h5.card-header
+    = @car.name
+  .card-body
+    - @car.images.each do |img|
+      = image_tag img.representation(resize_to_limit: [640, 360])
 
-= button_to 'Edit', edit_car_path(@car), method: :get, class: 'btn btn-secondary'
+    %p
+      %b Fuel type:
+      = @car.fuel_type
+    %p
+      %b Body color:
+      = @car.body_color
+    %p
+      %b Gearbox:
+      = @car.gearbox
+    %p
+      %b Dealer:
+      = @car.dealer.name
+    %p
+      %b Price:
+      = @car.price
 
+    - if @favorite_exists
+      %button.btn.btn-danger.bi.bi-star#unfavorite_button{:type => "button", :value => @car.id} Unfavorite
+    - else
+      %button.btn.btn-outline-danger.bi.bi-star#favorite_button{:type => "button", :value => @car.id} Favorite
+      
+    = button_to 'Edit', edit_car_path(@car), method: :get, class: 'btn btn-secondary mt-3'
+
+%br/
 = button_to 'Back', cars_path, method: :get, class: 'btn btn-light mt-2'

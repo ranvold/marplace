@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get 'favorites/index'
 
+  resources :favorites, only: %i[ index update ]
   resources :cars
   resources :models
   resources :submodels

@@ -7,6 +7,7 @@ class CarsController < ApplicationController
   end
 
   def show
+    @favorite_exists = Favorite.where(car: Car.find(params[:id]), user: current_user) == [] ? false : true
   end
 
   def new
