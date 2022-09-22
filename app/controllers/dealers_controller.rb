@@ -1,4 +1,5 @@
 class DealersController < ApplicationController
+  before_action :authenticate_admin_user!
   before_action :set_dealer, only: %i[ show edit update destroy ]
 
   def index

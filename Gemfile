@@ -13,6 +13,7 @@ gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'image_processing', '~> 1.12', '>= 1.12.2'
+gem 'activeadmin', '~> 2.13', '>= 2.13.1'
 
 group :development, :test do
   gem 'debug', '~> 1.6', '>= 1.6.2', platforms: %i[ mri mingw x64_mingw ]

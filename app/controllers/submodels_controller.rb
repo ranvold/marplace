@@ -1,4 +1,5 @@
 class SubmodelsController < ApplicationController
+  before_action :authenticate_admin_user!
   before_action :set_submodel, only: %i[ show edit update destroy ]
 
   def index
