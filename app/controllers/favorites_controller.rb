@@ -1,4 +1,6 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @cars = current_user.cars
     @cars = Kaminari.paginate_array(@cars).page(params[:page]).per(8)

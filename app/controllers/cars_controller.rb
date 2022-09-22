@@ -1,4 +1,6 @@
 class CarsController < ApplicationController
+  before_action :authenticate_seller!, only: %i[ new create edit update destroy ]
+  before_action :show_access, only: [:show]
   before_action :set_car, only: %i[ show edit update destroy ]
 
   def index
@@ -52,6 +54,14 @@ class CarsController < ApplicationController
     def set_car
       @car = Car.find(params[:id])
     end
+
+    def show_access
+      unless user_signed_in? || seller_signed_in?
+        flash[:alert] = "You must be logged in to access this section"
+        redirect_to root_path
+      end
+    end
+
 
     def car_params
       params.require(:car).permit(:name, :fuel_type, :body_color, :gearbox, :price, :model_id, :dealer_id, images: [])
