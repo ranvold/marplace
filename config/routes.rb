@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :sellers
   root to: 'cars#index'
 
   devise_for :users

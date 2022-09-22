@@ -12,6 +12,10 @@
         %div
           Currently waiting confirmation for: #{resource.unconfirmed_email}
       .field.form-group
+        = f.label :dealer_id
+        %br/
+        = f.select :dealer_id, Dealer.all.collect { |d| [ d.name, d.id ] }, class: 'form-select'
+      .field.form-group
         = f.label :password
         %i (leave blank if you don't want to change it)
         %br/
