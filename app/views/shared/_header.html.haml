@@ -1,7 +1,41 @@
-%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.bg-gradient
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-2
   .container-fluid
     = link_to 'Marplace', root_path, class: 'navbar-brand link-warning'
     %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNav", "data-bs-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     #navbarNav.collapse.navbar-collapse
       %ul.navbar-nav.me-auto
+      %ul.navbar-nav.ms-auto
+        - if user_signed_in?
+          %li.nav-item
+            .btn-group
+              %a.btn.btn-danger{:href => favorites_path} Favorites
+              %button.btn.btn-danger.dropdown-toggle.dropdown-toggle-split{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :type => "button"}
+                %span.visually-hidden Toggle Dropdown
+              %ul.dropdown-menu.dropdown-menu-end
+                %li
+                  = button_to "Edit profile", edit_user_registration_path, method: :get, class: 'dropdown-item'
+                %li
+                  %hr.dropdown-divider
+                %li
+                  = button_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item'
+        - elsif seller_signed_in?
+          %li.nav-item
+            .btn-group
+              %a.btn.btn-danger{:href => new_car_path} Add car
+              %button.btn.btn-danger.dropdown-toggle.dropdown-toggle-split{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :type => "button"}
+                %span.visually-hidden Toggle Dropdown
+              %ul.dropdown-menu.dropdown-menu-end
+                %li
+                  = button_to "Edit profile", edit_seller_registration_path, method: :get, class: 'dropdown-item'
+                %li
+                  %hr.dropdown-divider
+                %li
+                  = button_to "Log out", destroy_seller_session_path, method: :delete, class: 'dropdown-item'
+        - else
+          %li.nav-item
+            = button_to "Log in", new_user_session_path, method: :get, class: 'btn btn-outline-light me-2'
+          %li.nav-item
+            = button_to "Sign up", new_user_registration_path, method: :get, class: 'btn btn-outline-warning me-2'
+          %li.nav-item
+            = button_to "For dealers", new_seller_session_path, method: :get, class: 'btn btn-outline-info me-2'

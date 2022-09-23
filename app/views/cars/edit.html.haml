@@ -1,9 +1,10 @@
-%h1 Editing car
+%h2 Editing car
 
-%p
-  %b
-    = @car.name
+%h3
+  = @car.name
     
 = render 'form'
 
-= button_to 'Back', cars_path, method: :get, class: 'btn btn-light'
+= button_to "Delete", car_path(@car), data: { confirm: "Are you sure?" }, class: 'btn btn-danger mt-2', method: :delete
+
+= button_to 'Back', cars_path, method: :get, class: 'btn btn-light mt-2'

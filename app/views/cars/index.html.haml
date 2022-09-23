@@ -1,32 +1,12 @@
-%h1 Cars
+.row.row-cols-1.row-cols-md-4.g-4
+  - @cars.each do |car|
+    .col
+      .card.h-100
+        %img.card-img-top.h-100{:alt => "", :src => url_for(car.images[0])}
+        .card-body
+          %h5.card-title
+            = link_to car.name, car_path(car)
+          %b.card-text.text-success
+            = (car.price.to_s + '$')
 
-= button_to 'Add new car', new_car_path, method: :get, class: 'btn btn-primary'
-
-%table.table.table-bordered.table-striped
-  %thead
-    %tr
-      %th Name
-      %th Fuel type
-      %th Body color
-      %th Gearbox
-      %th Dealer
-      %th Price
-      %th
-      %th
-      %th
-
-  %tbody.align-middle
-    - @cars.each do |car|
-      %tr{"url" => "/cars/" + car.id.to_s}
-        %td= car.name
-        %td= car.fuel_type
-        %td= car.body_color
-        %td= car.gearbox
-        %td= car.dealer.name
-        %td= car.price
-        %td.width_for_sed
-          = button_to 'Show', car, method: :get, class: 'btn btn-info'
-        %td.width_for_sed
-          = button_to 'Edit', edit_car_path(car), method: :get, class: 'btn btn-secondary'
-        %td.width_for_sed
-          %button.deleteAction.btn.btn-danger{:type => "button"} Delete
+= paginate @cars, class: 

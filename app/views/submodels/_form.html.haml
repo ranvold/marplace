@@ -13,7 +13,7 @@
   .field
     = f.label :model_id
     %br/
-    = f.grouped_collection_select :model_id, Brand.all, :models, :name, :id, :name 
+    = f.grouped_collection_select :model_id, Brand.all, :models, :name, :id, :name
   .actions
     %br/
     = f.submit 'Save', class: 'btn btn-success'

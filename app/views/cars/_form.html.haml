@@ -1,43 +1,51 @@
-= form_for @car do |f|
-  - if @car.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@car.errors.count, "error")} prohibited this car from being saved:"
-      %ul
-        - @car.errors.full_messages.each do |message|
-          %li= message
+.card
+  .card-body
+    = form_for @car do |f|
+      - if @car.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@car.errors.count, "error")} prohibited this car from being saved:"
+          %ul
+            - @car.errors.full_messages.each do |message|
+              %li= message
 
-  .field
-    = f.label :fuel_type
-    %br/
-    = f.select :fuel_type, Car.fuel_types.map { |key, value| [key.humanize, key] }
-  .field
-    = f.label :body_color
-    %br/
-    = f.select :body_color, Car.body_colors.map { |key, value| [key.humanize, key] }
-  .field
-    = f.label :gearbox
-    %br/
-    = f.select :gearbox, Car.gearboxes.map { |key, value| [key.humanize, key] }
-  .field
-    = f.label 'Brand'
-    %br/
-    = select_tag "brand_id", options_for_select(Brand.all.collect{ |b| [b.name, b.id] }), prompt: "Select brand"
-  .field
-    = f.label :model_id
-    %br/
-    = select_tag :model_id, options_for_select([].collect{ |m| [m.name, m.id] }), disabled: true
-  .field
-    = f.label 'Submodel'
-    %br/
-    = select_tag "submodel_id", options_for_select([].collect{ |b| [b.name, b.id] }), disabled: true
-  .field
-    = f.label :dealer_id
-    %br/
-    = f.select :dealer_id, Dealer.all.collect { |d| [ d.name, d.id ] }
-  .field
-    = f.label :price
-    %br/
-    = f.text_field :price
-  .actions
-    %br/
-    = f.submit 'Save', class: 'btn btn-success'
+      .field
+        = f.label :fuel_type
+        %br/
+        = f.select :fuel_type, Car.fuel_types.map { |key, value| [key.humanize, key] }
+      .field
+        = f.label :body_color
+        %br/
+        = f.select :body_color, Car.body_colors.map { |key, value| [key.humanize, key] }
+      .field
+        = f.label :gearbox
+        %br/
+        = f.select :gearbox, Car.gearboxes.map { |key, value| [key.humanize, key] }
+      .field
+        = f.label 'Brand'
+        %br/
+        = select_tag "brand_id", options_for_select(Brand.all.collect{ |b| [b.name, b.id] }), prompt: "Select brand"
+      .field
+        = f.label :model_id
+        %br/
+        = select_tag :model_id, options_for_select([].collect{ |m| [m.name, m.id] }), disabled: true
+      .field
+        = f.label 'Submodel'
+        %br/
+        = select_tag "submodel_id", options_for_select([].collect{ |b| [b.name, b.id] }), disabled: true
+      .field
+        = f.label :dealer_id
+        %br/
+        = f.select :dealer_id, Dealer.all.collect { |d| [ d.name, d.id ] }
+      .field
+        = f.label :price
+        %br/
+        = f.text_field :price
+      .field
+        = f.label :images
+        %br/
+        = f.file_field :images, multiple: true
+      .actions
+        %br/
+        = f.submit 'Save', class: 'btn btn-success'
+
+

@@ -1,0 +1,30 @@
+.card
+  .card-header
+    %h3 Sign up
+  .card-body
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "users/shared/error_messages", resource: resource
+      .field.form-group
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+      .field.form-group
+        = f.label :dealer_id
+        %br/
+        = f.select :dealer_id, Dealer.all.collect { |d| [ d.name, d.id ] }, class: 'form-select'
+      .field.form-group
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+      .field.form-group
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+      .actions
+        = f.submit "Sign up", class: 'btn btn-primary mt-2'
+
+%br/
+= render "users/shared/links"
