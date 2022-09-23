@@ -1,5 +1,5 @@
 class ModelsController < ApplicationController
-  before_action :authenticate_admin_user!
+  before_action :authenticate_admin_user!, except: [:models_by_brand]
   before_action :set_model, only: %i[ show edit update destroy ]
 
   def index

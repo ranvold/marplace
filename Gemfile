@@ -18,6 +18,7 @@ gem 'activeadmin', '~> 2.13', '>= 2.13.1'
 group :development, :test do
   gem 'debug', '~> 1.6', '>= 1.6.2', platforms: %i[ mri mingw x64_mingw ]
   gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
+  gem 'factory_bot_rails', '~> 6.2'
 end
 
 group :development do
