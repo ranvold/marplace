@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  scope '/api' do
+  scope '/ajax' do
     get 'models/:brand_id', to: 'models#models_by_brand'
     get 'submodels/:model_id', to: 'submodels#submodels_by_model'
   end
