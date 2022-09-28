@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :api, path: '/api' do
+    mount API::Endpoint => '/'
+  end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :sellers
