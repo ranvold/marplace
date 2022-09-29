@@ -5,7 +5,7 @@ $(document).on("change", "#brand_id", function(){
   $("#submodel_id").empty();
   $("#submodel_id").prop('disabled', true);
   $.ajax({
-    url: "/api/models/" + brand_id,
+    url: "/ajax/models/" + brand_id,
     method: "get",  
     dataType: "json",
     data: {brand_id: brand_id},
@@ -30,7 +30,7 @@ $(document).on("change", "#model_id", function(){
   var model_id = $(this).val();
   $("#submodel_id").empty();
   $.ajax({
-    url: "/api/submodels/" + model_id,
+    url: "/ajax/submodels/" + model_id,
     method: "get",  
     dataType: "json",
     data: {model_id: model_id},
