@@ -1,6 +1,10 @@
 {
   "name": "app",
   "private": "true",
+  "engines": {
+    "node": "16.x",
+    "yarn": "1.x"
+  },
   "dependencies": {
     "@activeadmin/activeadmin": "^2.13.1",
     "@popperjs/core": "^2.11.6",
