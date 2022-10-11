@@ -33,10 +33,6 @@
         %br/
         = select_tag "submodel_id", options_for_select([].collect{ |b| [b.name, b.id] }), disabled: true
       .field
-        = f.label :dealer_id
-        %br/
-        = f.select :dealer_id, Dealer.all.collect { |d| [ d.name, d.id ] }
-      .field
         = f.label :price
         %br/
         = f.text_field :price

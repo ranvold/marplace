@@ -3,7 +3,7 @@
     = @car.name
   .card-body
     - @car.images.each do |img|
-      = image_tag img
+      = image_tag img.variant(resize_to_limit: [640, 360])
 
     %p
       %b Fuel type:
@@ -19,7 +19,7 @@
       = @car.dealer.name
     %p
       %b Price:
-      = @car.price
+      = @car.price.to_s + '$'
 
     - if user_signed_in?
       - if @favorite_exists

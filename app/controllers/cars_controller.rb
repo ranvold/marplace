@@ -20,7 +20,7 @@ class CarsController < ApplicationController
   end
 
   def create
-    @car = Car.new(car_params.merge(model_id: params[:model_id]))
+    @car = Car.new(car_params.merge(model_id: params[:model_id], dealer_id: current_seller.dealer_id))
 
     @car.name = Car.car_name(@car, params[:submodel_id])
 

@@ -4,6 +4,6 @@ class Brand < ApplicationRecord
   before_validation :normalize_name
 
   def normalize_name
-    self.name = self.name.downcase.strip
+    self.name = self.name.upcase.strip
   end
 end
