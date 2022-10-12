@@ -15,6 +15,7 @@ gem 'kaminari', '1.2.2'
 gem 'image_processing', '1.12.2'
 gem 'activeadmin', '2.13.1'
 gem 'grape', '1.6.2'
+gem 'chartkick', '4.2.1'
 
 group :development, :test do
   gem 'debug', '1.6.2', platforms: %i[ mri mingw x64_mingw ]
