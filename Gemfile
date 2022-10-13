@@ -7,15 +7,23 @@ gem 'rails', '7.0.4'
 gem 'sprockets-rails', '3.4.2'
 gem 'pg', '1.4.3'
 gem 'puma', '5.6.5'
+
 gem 'jsbundling-rails', '1.0.3'
 gem 'cssbundling-rails', '1.1.1'
 gem 'haml-rails', '2.0.1'
+
 gem 'devise', '4.8.1'
-gem 'kaminari', '1.2.2'
-gem 'image_processing', '1.12.2'
 gem 'activeadmin', '2.13.1'
+
+gem 'kaminari', '1.2.2'
+gem 'bootstrap5-kaminari-views', '0.0.1'
+
+gem 'image_processing', '1.12.2'
+
 gem 'grape', '1.6.2'
+
 gem 'chartkick', '4.2.1'
+
 gem 'searchkick', '5.0.5'
 gem 'opensearch-ruby', '2.0.3'
 

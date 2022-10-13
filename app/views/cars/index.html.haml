@@ -9,4 +9,6 @@
           %b.card-text.text-success
             = (car.price.to_s + '$')
 
-= paginate @cars
+%br/
+
+= paginate @cars, theme: 'bootstrap-5'
