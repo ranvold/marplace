@@ -4,5 +4,6 @@ module API
     format :json
 
     mount API::Brands
+    mount API::Cars
   end
 end
