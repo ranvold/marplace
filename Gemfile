@@ -27,6 +27,8 @@ gem 'chartkick', '4.2.1'
 gem 'searchkick', '5.0.5'
 gem 'opensearch-ruby', '2.0.3'
 
+gem 'redis', '5.0.5'
+
 group :development, :test do
   gem 'debug', '1.6.2', platforms: %i[ mri mingw x64_mingw ]
   gem 'rspec-rails', '5.1.2'
