@@ -31,11 +31,15 @@ gem 'redis', '5.0.5'
 
 group :development, :test do
   gem 'debug', '1.6.2', platforms: %i[ mri mingw x64_mingw ]
-  gem 'rspec-rails', '5.1.2'
+  gem 'rspec-rails', '6.0'
   gem 'factory_bot_rails', '6.2.0'
 end
 
 group :development do
   gem 'web-console', '4.2.0'
   gem 'letter_opener', '1.8.1'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 5.2'
 end

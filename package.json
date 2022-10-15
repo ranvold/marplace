@@ -13,7 +13,7 @@
     "sass": "^1.54.9"
   },
   "scripts": {
-    "build:js": "npm-run-all --parallel \"build:js:* {@}\" --",
+    "build": "npm-run-all --parallel \"build:js:* {@}\" --",
     "build:js:application": "esbuild app/javascript/application.js --bundle --sourcemap --outfile=app/assets/builds/application.js",
     "build:js:active_admin": "esbuild app/javascript/active_admin.js --bundle --sourcemap --outfile=app/assets/builds/active_admin.js",
     "build:css": "npm-run-all --parallel \"build:css:* {@}\" --",
