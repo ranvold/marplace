@@ -24,7 +24,7 @@ module API
         optional :description, type: String
       end
       post do
-        brand = Brand.create!(
+        Brand.create!(
           name: params[:name],
           description: params[:description]
         )
@@ -34,10 +34,10 @@ module API
       route_param :id do
         put do
           Brand.find(params[:id]).update(params)
-          { message: 'Brand updated successfully' }
+          {message: 'Brand updated successfully'}
         rescue ActiveRecord::RecordNotFound
           error!('Record Not Found', 404)
-        end 
+        end
       end
 
       desc 'Destroy a brand'
@@ -45,7 +45,7 @@ module API
         delete do
           brand = Brand.find(params[:id])
           brand.destroy
-          { message: 'Brand deleted successfully' }
+          {message: 'Brand deleted successfully'}
         rescue ActiveRecord::RecordNotFound
           error!('Record Not Found', 404)
         end

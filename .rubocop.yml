@@ -1,0 +1,79 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+Documentation:
+  Enabled: false
+
+AllCops:
+  Include:
+    - 'app/**/*.rb'
+    - 'lib/**/*'
+    - 'spec/**/*.rb'
+    - 'config/**/*.rb'
+  Exclude:
+    - 'lib/assets/**/*'
+    - 'bin/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+
+Layout/BlockAlignment:
+  EnforcedStyleAlignWith: start_of_block
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Layout/LineLength:
+  Max: 130
+
+Lint/UselessAssignment:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+Style/GuardClause:
+  Enabled: false
+
+Style/MissingRespondToMissing:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Rails/OutputSafety:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 140

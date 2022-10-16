@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
 
   def update
     favorite = Favorite.where(car: Car.find(params[:id]), user: current_user)
-    
+
     if favorite == []
       Favorite.create(car: Car.find(params[:id]), user: current_user)
       @favorite_exists = true

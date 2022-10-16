@@ -6,6 +6,6 @@ class Model < ApplicationRecord
   before_validation :normalize_name
 
   def normalize_name
-    self.name = self.name.capitalize.strip
+    self.name = name.capitalize.strip
   end
 end

@@ -3,7 +3,7 @@ module API
     resource :cars do
       desc 'Return all cars'
       get do
-        Rails.cache.fetch('cars', expires_in: 1.hours) do
+        Rails.cache.fetch('cars', expires_in: 1.hour) do
           Car.all
         end
       end
@@ -14,8 +14,8 @@ module API
         end
         desc 'Returns a list of matching cars.'
         get do
-          Rails.cache.fetch("cars/search?query=#{params[:query]}", expires_in: 1.hours) do
-            search = Car.search(params[:query], fields: [:all_fields], misspellings: false)
+          Rails.cache.fetch("cars/search?query=#{params[:query]}", expires_in: 1.hour) do
+            Car.search(params[:query], fields: [:all_fields], misspellings: false)
           end
         end
       end

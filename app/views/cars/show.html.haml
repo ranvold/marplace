@@ -23,9 +23,9 @@
 
     - if user_signed_in?
       - if @favorite_exists
-        %button.btn.btn-danger.bi.bi-star#unfavorite_button{:type => "button", :value => @car.id} Unfavorite
+        %button.btn.btn-danger.bi.bi-star#unfavorite_button{:type => 'button', :value => @car.id} Unfavorite
       - else
-        %button.btn.btn-outline-danger.bi.bi-star#favorite_button{:type => "button", :value => @car.id} Favorite
+        %button.btn.btn-outline-danger.bi.bi-star#favorite_button{:type => 'button', :value => @car.id} Favorite
     - elsif seller_signed_in? && current_seller.dealer == @car.dealer
       = button_to 'Edit', edit_car_path(@car), method: :get, class: 'btn btn-secondary mt-3'
 
