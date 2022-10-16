@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :api, path: '/api' do
-    mount API::Endpoint => '/'
+    mount V1::API => '/'
   end
 
   devise_for :admin_users, ActiveAdmin::Devise.config

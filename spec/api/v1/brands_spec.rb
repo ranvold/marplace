@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-describe API::Brands do
-  let!(:brand) { create :brand }
+describe V1::Brands do
+  let(:brand) { create :brand }
 
   describe 'GET /brands' do
     it 'returns success code' do
       get '/api/v1/brands'
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
     end
 
     it 'returns all brands' do
@@ -17,11 +17,11 @@ describe API::Brands do
   end
 
   describe 'GET /brands/:id' do
-  let!(:brand) { create :brand }
+    let(:brand) { create :brand }
 
     it 'returns 404 for an invalid id' do
       get '/api/v1/brands/500'
-      expect(response).to have_http_status(404)
+      expect(response).to have_http_status(:not_found)
     end
   end
 end

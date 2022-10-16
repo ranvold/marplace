@@ -1,4 +1,4 @@
-module API
+module V1
   class Cars < Grape::API
     resource :cars do
       desc 'Return all cars'
