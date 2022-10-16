@@ -31,8 +31,6 @@ gem 'redis', '5.0.5'
 
 group :development, :test do
   gem 'debug', '1.6.2', platforms: %i[mri mingw x64_mingw]
-  gem 'factory_bot_rails', '6.2.0'
-  gem 'rspec-rails', '6.0'
   gem 'rubocop', '1.36.0', require: false
   gem 'rubocop-rails', '2.16.1', require: false
   gem 'rubocop-rspec', '2.13.2', require: false
@@ -44,5 +42,10 @@ group :development do
 end
 
 group :test do
+  gem 'rspec-rails', '6.0'
+
+  gem 'factory_bot_rails', '6.2.0'
+  gem 'faker', '2.23'
+
   gem 'shoulda-matchers', '~> 5.2'
 end
