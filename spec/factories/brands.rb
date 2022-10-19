@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :brand do
-    name { 'bmw' }
+    name { 'BMW' }
   end
 
   factory :random_brand, class: 'Brand' do

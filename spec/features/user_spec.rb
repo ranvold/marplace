@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'User', type: :feature do
   it 'signs me in' do
-    login_as(create(:user, email: 'auth@gmail.com', password: 'mypassword'))
+    create(:user, email: 'auth@gmail.com', password: 'mypassword')
 
     visit '/users/sign_in'
     within('div.card-body') do
@@ -18,7 +18,7 @@ describe 'User', type: :feature do
   end
 
   it 'doesnt sign me in' do
-    login_as(create(:user, email: 'auth@gmail.com', password: 'mypassword'))
+    create(:user, email: 'auth@gmail.com', password: 'mypassword')
 
     visit '/users/sign_in'
     within('div.card-body') do
