@@ -1,6 +1,6 @@
 .card
   .card-header
-    %h3 Log in as seller
+    %h3 Sign in as seller
   .card-body
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field.form-group
@@ -13,7 +13,7 @@
           = f.check_box :remember_me, class: 'form-check-input mt-2'
           = f.label :remember_me, class: 'mt-1'
       .actions
-        = f.submit 'Log in', class: 'btn btn-secondary mt-2'
+        = f.submit 'Sign in', class: 'btn btn-secondary mt-2'
 
 %br/
 = render 'users/shared/links'
