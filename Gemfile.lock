@@ -405,7 +405,7 @@ DEPENDENCIES
   rubocop-rails (= 2.16.1)
   rubocop-rspec (= 2.13.2)
   searchkick (= 5.0.5)
-  shoulda-matchers (~> 5.2)
+  shoulda-matchers (= 5.2)
   sprockets-rails (= 3.4.2)
   web-console (= 4.2.0)
 

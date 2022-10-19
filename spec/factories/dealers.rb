@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :dealer do
-    name { 'spaceway' }
+    name { 'Spaceway' }
   end
 
   factory :random_dealer, class: 'Dealer' do
